@@ -1,11 +1,39 @@
-This repo contains my configuration for my Nixos and Neovim
+This repo contains my configuration for my Nixos and Neovim, to setup my development environment(and other things :D)
 
-### nvimconfig ###
-# Installation:
+## Dir structure
+```
+nixos-config/
+├── flake.nix
+├── hosts/desktop-nixos/ <-- dir for each unique host
+│   ├── default.nix
+│   └── hardware-configuration.nix 
+├── modules/ <-- Different modules, to seperate and create a better overview of programs 
+│   ├── audio.nix  
+│   ├── desktop.nix   
+│   ├── locale.nix      
+│   ├── nix-ld.nix  
+│   ├── packages.nix  
+│   ├── users.nix
+│   ├── boot.nix   
+│   ├── hardware.nix  
+│   ├── networking.nix  
+│   ├── npm.nix     
+│   ├── programs.nix      
+│   └── ... (system modules)
+└── home/ <-- programs here if they need more than a one line
+    ├── mangoose.nix
+    ├── neovim.nix
+    ├── git.nix
+    ├── ssh.nix
+    └── kitty.nix
+```
+
+# nvimconfig
+## Installation:
 Create a symlink from .config/nvim -> git/nvimconfig/nvim
  - ln -s ~/git/nvimconfig/nvim/ -T nvim
 
-# Dependencies on Linux:
+## Dependencies on Linux:
  - Install treesitter-cli
     > Install cargo(rust)
     > libclang-dev
@@ -21,28 +49,12 @@ Create a symlink from .config/nvim -> git/nvimconfig/nvim
  - Install fd
     > sudo apt install fd-find
 
-### Nixos ###
 
-# Dir structure
 
-nixos-config/
-├── flake.nix
-├── hosts/desktop-nixos/ <-- add dir for each unique host
-│   ├── default.nix
-│   └── hardware-configuration.nix 
-├── modules/
-│   └── ... (system modules)
-└── home/ <-- add programs here if they need more than a one line
-    ├── mangoose.nix
-    ├── neovim.nix
-    ├── git.nix
-    ├── ssh.nix
-    └── kitty.nix
-
-# Rebuild
+# NIXOS
+## Rebuild
 sudo nixos-rebuild switch --flake ~/Documents/git/MyShmetup/nixos-config#desktop-nixos
 
 
-# TODO
+#### TODO
 add kde plasma config
-maybe seperate some of the programs for better granularity
