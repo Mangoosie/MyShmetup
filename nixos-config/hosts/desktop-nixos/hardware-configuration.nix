@@ -42,12 +42,11 @@
       options = [ "nofail" ];
     };
 
-  fileSystems."/mnt/randomCrap" = 
-    { device = "/dev/disk/by-uuid/76430670-b39a-4ae6-b28f-44752ffc167c";
-      fsType = "btrfs";
-      options = [ "nofail" ];
-    };
-
+  fileSystems."/mnt/windows" = {
+    device = "/dev/disk/by-uuid/3C4A03224A02D912";
+    fsType = "ntfs3";
+    options = [ "nofail" "ro" "uid=1000" "gid=100" ];
+  };
   fileSystems."/mnt/slowSSD" = 
     { device = "/dev/disk/by-uuid/efff4361-0b5e-41be-a48f-80eded819ba0";
       fsType = "btrfs";
