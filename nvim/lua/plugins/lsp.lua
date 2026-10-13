@@ -1,11 +1,11 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-  },
-  config = function()
+    "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim", }, config = function()
     -- Error Lens-style diagnostics: always show messages inline and in the sign column.
+	vim.opt.signcolumn = "yes"
+	vim.api.nvim_set_hl(0, "SignColumn", { bg = "NONE" })
+
     vim.diagnostic.config({
       virtual_text = {
         spacing = 2,
