@@ -28,5 +28,6 @@
     discord
 	pciutils
 	lshw
+	appimage-run
   ];
 }
