@@ -29,5 +29,6 @@
 	pciutils
 	lshw
 	appimage-run
+	opencode
   ];
 }
