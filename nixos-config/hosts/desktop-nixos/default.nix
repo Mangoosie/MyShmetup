@@ -14,6 +14,7 @@
     ../../modules/nix-ld.nix
     ../../modules/npm.nix
     ../../modules/guiprograms.nix
+	../../modules/podman.nix
 
     ../../home/kitty.nix
   ];

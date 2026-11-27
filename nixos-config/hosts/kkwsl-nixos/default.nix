@@ -6,6 +6,7 @@
 	../../modules/packages.nix
 	../../modules/nix-ld.nix
 	../../modules/npm.nix
+	../../modules/podman.nix
 	];
 	wsl.enable = true;
 	wsl.defaultUser ="mangoose";
