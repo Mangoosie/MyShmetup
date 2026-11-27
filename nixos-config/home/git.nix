@@ -1,8 +1,10 @@
-{ lib, pkgs, ... }:
-{
-  programs.git = {
+{ lib, pkgs, osConfig, ... }:
+let
+   isWsl = osConfig.wsl.enable or false;
+in {
+  programs.git =  {
     enable = true;
-    settings = {
+    settings = lib.mkIf (!isWsl){
       gpg.format = "ssh";
       "gpg \"ssh\"".program = "${lib.getExe' pkgs._1password-gui "op-ssh-sign"}";
       user = {
@@ -12,3 +14,4 @@
     };
   };
 }
+

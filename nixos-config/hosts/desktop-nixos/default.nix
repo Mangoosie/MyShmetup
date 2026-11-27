@@ -12,12 +12,17 @@
     ../../modules/programs.nix
     ../../modules/packages.nix
     ../../modules/nix-ld.nix
-	../../modules/npm.nix
+    ../../modules/npm.nix
+    ../../modules/guiprograms.nix
+
+    ../../home/kitty.nix
   ];
 
-  networking.hostName = "nixos";
+  networking.hostName = "desktop-nixos";
   system.stateVersion = "26.11";
   nixpkgs.config.allowUnfree = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
